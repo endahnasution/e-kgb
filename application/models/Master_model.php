@@ -33,8 +33,9 @@ public function getPegawaiId($id){
    $this->db->set('nip', $data['nip']); 
    $this->db->set('pangkat', $data['pangkat']);
    $this->db->set('golongan', $data['golongan']);
-    $this->db->set('ketuaTim', $data['ketua']);
-   $this->db->set('ppk', $data['ppk']); 
+   $this->db->set('substansi', $data['substansi']);
+   $this->db->set('id_role', $data['id_role']); 
+   $this->db->set('activated', $data['activated']); 
    $this->db->where('idPegawai', $data['idPegawai']);
    $query = $this->db->update('tbl_pegawai');
 }

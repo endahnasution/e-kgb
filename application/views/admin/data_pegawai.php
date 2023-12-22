@@ -42,8 +42,9 @@
 													<th class="dt-center">NIP</th>
 													<th class="dt-center">Pangkat</th>
 													<th class="dt-center">Golongan</th>
-													<th class="dt-center">PPK</th>
-													<th class="dt-center">Ketua Tim</th>
+													<th class="dt-center">Substansi</th>
+													<th class="dt-center">Status Akun</th>
+													<th class="dt-center">Role</th>
 													<th class="dt-center">Aksi</th>
 												</tr>
 											</thead>
@@ -58,18 +59,20 @@
 														echo "<td class='dt-left'>".$row->nip."</td>";
 														echo "<td class='dt-left'>".$row->pangkat."</td>";
 														echo "<td class='dt-left'>".$row->golongan."</td>";
+														echo "<td class='dt-left'>".$row->substansi."</td>";
 														
-														
-														if($row->ppk == 1){
-														    echo "<td class='dt-left'>Ya</td>";
+														if($row->activated == 1){
+														    echo "<td class='dt-center'><span class='label label-primary'>Aktif</span></td>";
 														}else{
-														    echo "<td class='dt-left'>Tidak</td>";
+														    echo "<td class='dt-center'><span class='label label-danger'>Tidak Aktif</span></td>";
 														}
 														
-														if($row->ketuaTim == 1){
-														    echo "<td class='dt-left'>Ya</td>";
+														if($row->id_role == 1){
+														    echo "<td class='dt-left'>Admin</td>";
+														}else if ($row->id_role == 2){
+														    echo "<td class='dt-left'>Petugas</td>";
 														}else{
-														    echo "<td class='dt-left'>Tidak</td>";
+															echo "<td class='dt-left'>Tidak Ada</td>";
 														}
 														
 														echo "<td class='dt-left'>"?>                             

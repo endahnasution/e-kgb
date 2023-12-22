@@ -50,6 +50,19 @@
         </ul>
       </li>
 
+      <li class="treeview" style="height: auto;">
+        <a href="#">
+          <i class="fa fa-envelope"></i> <span>Data Master</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu" style="display: none;">
+          
+          <li><a href="<?php echo base_url('admin/master/data_pegawai') ?>"><i class="fa fa-circle-o"></i>Pegawai</a></li>
+        </ul>
+      </li>
+
       <!-- <li class="active"><a href="<?php echo base_url('admin/surat_perjadin/surat_perjadin') ?>"><i class="fa fa-plane"></i> <span>Surat Perjalanan Dinas</span></a></li> -->
 
       <!-- <li class="treeview" style="height: auto;">

@@ -67,17 +67,18 @@ class Master extends MY_Controller
         }
 
         public function ubahPegawai(){
-            $data = konfigurasi('Pilih Surat Tugas', 'ap');
+        $data = konfigurasi('Pilih Surat Tugas', 'ap');
         $id = $this->input->post('id');
         $nama = $this->input->post('nama');
         $jabatan = $this->input->post('jabatan');
         $nip = $this->input->post('nip');
         $pangkat = $this->input->post('pangkat');
         $golongan = $this->input->post('golongan');
-        $ppk = $this->input->post('ppk');
-         $ketua = $this->input->post('ketua');
-      
-        
+        $substansi = $this->input->post('substansi');
+        $role = $this->input->post('role');
+        $activated = $this->input->post('activated');
+
+ 
             $data = array (
                 'idPegawai' => $id,
                 'nama' => $nama,
@@ -85,8 +86,9 @@ class Master extends MY_Controller
                 'nip' => $nip,
                 'pangkat' => $pangkat,
                 'golongan' => $golongan,
-                'ketua' => $ketua,
-                'ppk' => $ppk
+                'substansi' => $substansi,
+                'id_role' => $role,
+                'activated' => $activated
             );
 
 

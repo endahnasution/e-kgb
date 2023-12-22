@@ -30,14 +30,16 @@
   $pangkat =  $row->pangkat;
   $golongan =  $row->golongan;
   $ketuatim = $row->ketuaTim;
-  $ppk =  $row->ppk;
+  $activated =  $row->activated;
+  $role =  $row->id_role;
+  $substansi = $row->substansi;
  }?>
 
 
         <div class="col-md-12">
           <hr>
        
-           <input type="hidden" class="form-control" placeholder="Nama Pegawai" name="id" id="id" value=<?echo $idPetugas ?> required>
+           <input type="hidden" class="form-control" placeholder="Nama Pegawai" name="id" id="id" value="<?=$idPetugas?>" required>
           
           <!-- nama pegawai -->
            <div class="form-group row">
@@ -53,12 +55,12 @@
         <!--jabatan-->
         
          <div class="form-group row">
-            <label for="noSurat" class="col-sm-4 col-form-label">Pangkat<span class="wajib"> *</span></label>
+            <label for="noSurat" class="col-sm-4 col-form-label">Jabatan<span class="wajib"> *</span></label>
             <div class="col-sm-12">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-list"></i></span>
                 <select class="form-control" name="jabatan" id="jabatan" required>
-                  <option value="<?echo $jabatan ?>"  selected><?echo $jabatan ?></option>
+                  <option value="<?= $jabatan ?>"  selected><?= $jabatan ?></option>
                   <option>-</option>
                   <option>Kepala Balai POM di Batam</option>
                   <option>Kepala Sub Bagian Tata Usaha</option>
@@ -103,12 +105,12 @@
 
           <!-- pangkat -->
           <div class="form-group row">
-            <label for="noSurat" class="col-sm-4 col-form-label">Jabatan<span class="wajib"> *</span></label>
+            <label for="noSurat" class="col-sm-4 col-form-label">Pangkat<span class="wajib"> *</span></label>
             <div class="col-sm-12">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-list"></i></span>
                 <select class="form-control" name="pangkat" id="pangkat" required>
-                  <option value="<?echo $pangkat ?>"  selected><?echo $pangkat ?></option>
+                  <option value="<?= $pangkat ?>"  selected><?= $pangkat ?></option>
                   <option>-</option>
                   <option>Pengatur</option>
                   <option>Pengatur Tk.I</option>
@@ -133,7 +135,7 @@
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-list"></i></span>
                 <select class="form-control" name="golongan" id="golongan" required>
-                  <option value="<?echo $golongan ?>"  selected><?echo $golongan ?></option>
+                  <option value="<?=$golongan ?>"  selected><?=$golongan ?></option>
                   <option>-</option>
                   <option>II c</option>
                   <option>II d</option>
@@ -150,55 +152,74 @@
               </div>
             </div>
           </div>
-          
-           <div class="form-group row">
-            <label for="noSurat" class="col-sm-4 col-form-label">Ketua Tim<span class="wajib"> *</span></label>
+
+          <div class="form-group row">
+            <label for="noSurat" class="col-sm-4 col-form-label">Substansi<span class="wajib"> *</span></label>
             <div class="col-sm-12">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                <select class="form-control" name="ketua" id="ketua" required>
-                 
-                  <option>-</option>
-                  <?php
-                  if($ketuatim == 0){
-                                      echo "<option value='0' selected >Tidak</option>";
-                  } 
-                  else{
-                      echo "<option value='1' selected >Ya</option>";
-                  }
-                  ?>
-                       
-                      
-                  
-                  <option value="1">Ya</option>
-                  <option value="0">Tidak</option>
+                <select class="form-control" name="substansi" id="substansi" required>
+                  <option value="<?= $substansi ?>" selected ><?= $substansi ?></option>
+                  <option>Pemeriksaan</option>
+                  <option>Penindakan</option>
+                  <option>Pengujian</option>
+                  <option>Infokom</option>
+                  <option>Tata Usaha</option>
+               
                 </select>
               </div>
             </div>
           </div>
+        
           
           <!--ppk-->
           <div class="form-group row">
-            <label for="noSurat" class="col-sm-4 col-form-label">PPK<span class="wajib"> *</span></label>
+            <label for="noSurat" class="col-sm-4 col-form-label">Status Akun<span class="wajib"> *</span></label>
             <div class="col-sm-12">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-list"></i></span>
-                <select class="form-control" name="ppk" id="ppk" required>
-                  <option value="" disabled selected>- PPK -</option>
-                  <option>-</option>
+                <select class="form-control" name="activated" id="activated" required>
+        
                   <?php
-                  if($ppk == 0){
-                                      echo "<option value='0' selected >Tidak</option>";
+                  if($activated == 0){
+                                      echo "<option value='0' selected >Tidak Aktif</option>";
                   } 
                   else{
-                      echo "<option value='1' selected >Ya</option>";
+                      echo "<option value='1' selected >Aktif</option>";
                   }
                   ?>
                        
                       
                   
-                  <option value="1">Ya</option>
-                  <option value="0">Tidak</option>
+                  <option value="1">Aktif</option>
+                  <option value="0">Tidak Aktif</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+            
+          <div class="form-group row">
+            <label for="noSurat" class="col-sm-4 col-form-label">Role<span class="wajib"> *</span></label>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                <select class="form-control" name="role" id="role" required>
+                 
+                  <option>-</option>
+                  <?php
+                  if($id_role == 1){
+                                      echo "<option value='1' selected >Admin</option>";
+                  } 
+                  else{
+                      echo "<option value='2' selected >Petugas</option>";
+                  }
+                  ?>
+                       
+                      
+                  
+                  <option value="1">Admin</option>
+                  <option value="2">Petugas</option>
                 </select>
               </div>
             </div>
