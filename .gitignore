@@ -2,3 +2,4 @@
 .editorconfig
 .htaccess
 application/.htaccess
+*.pdf
